@@ -7,7 +7,7 @@ import java.util.Map;
 /**
  * Detailed Context Model.
  * This is currently used by {@link com.shedhack.thread.context.handler.JsonThreadContextHandler}
- * 
+ *
  * @author imamchishty
  */
 public class ThreadContextModel {
