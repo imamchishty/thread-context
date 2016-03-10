@@ -1,8 +1,10 @@
 package com.shedhack.thread.context.handler;
 
+import com.shedhack.thread.context.model.DefaultThreadContextModel;
 import com.shedhack.thread.context.model.ThreadContextModel;
 import org.junit.Test;
 
+import java.util.Date;
 import java.util.Optional;
 
 import static org.junit.Assert.assertFalse;
@@ -23,35 +25,37 @@ public class JsonThreadContextHandlerTest {
     public void should_create_thread_context() {
 
         // Arrange
-        ThreadContextModel.Builder builder = new ThreadContextModel.Builder();
-
-        ThreadContextModel model = builder.withMethodName("stringConcat").withDefaultDate()
-                .withContext("sessionid", "12345").withContext("xsrf", "86AV837")
-                .withId("ABCD12345").withParam("x", "one").withParam("y", "two")
-                .build();
+        ThreadContextModel model = new DefaultThreadContextModel();
+        model.setId("ABCD12345");
+        model.setMethodName("stringConcat");
+        model.setTimestamp(new Date());
+        model.addContext("sessionid", "12345");
+        model.addContext("xsrf", "86AV837");
+        model.addParam("x", "one");
+        model.addParam("y", "two");
 
         // Act
         handler.setThreadContext(model);
 
         // Get the context
-        Optional<ThreadContextModel> createdModel = handler.getThreadContext();
+        Optional<ThreadContextModel> response = handler.getThreadContext();
 
         // Assert
-        assertEquals("ABCD12345", createdModel.get().getId());
-        assertEquals("stringConcat", createdModel.get().getMethodName());
-        assertNotNull(createdModel.get().getTimestamp());
+        assertEquals("ABCD12345", response.get().getId());
+        assertEquals("stringConcat", response.get().getMethodName());
+        assertNotNull(response.get().getTimestamp());
 
         // check context
-        assertTrue(createdModel.get().getContext().containsKey("xsrf"));
-        assertTrue(createdModel.get().getContext().containsKey("sessionid"));
-        assertEquals("86AV837", createdModel.get().getContext().get("xsrf"));
-        assertEquals("12345", createdModel.get().getContext().get("sessionid"));
+        assertTrue(response.get().getContext().containsKey("xsrf"));
+        assertTrue(response.get().getContext().containsKey("sessionid"));
+        assertEquals("86AV837", response.get().getContext().get("xsrf"));
+        assertEquals("12345", response.get().getContext().get("sessionid"));
 
         // check params
-        assertTrue(createdModel.get().getParams().containsKey("x"));
-        assertTrue(createdModel.get().getParams().containsKey("y"));
-        assertEquals("one", createdModel.get().getParams().get("x"));
-        assertEquals("two", createdModel.get().getParams().get("y"));
+        assertTrue(response.get().getParams().containsKey("x"));
+        assertTrue(response.get().getParams().containsKey("y"));
+        assertEquals("one", response.get().getParams().get("x"));
+        assertEquals("two", response.get().getParams().get("y"));
     }
 
     @Test
