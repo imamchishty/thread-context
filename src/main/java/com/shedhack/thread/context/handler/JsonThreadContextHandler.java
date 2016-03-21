@@ -12,7 +12,7 @@ import java.util.Optional;
  *
  * @author imamchishty
  */
-public class JsonThreadContextHandler implements ThreadContextHandler {
+public class JsonThreadContextHandler implements ThreadContextHandler<ThreadContextModel> {
 
     private static Gson GSON = new Gson();
 
@@ -32,9 +32,15 @@ public class JsonThreadContextHandler implements ThreadContextHandler {
      * object is returned.
      */
     public Optional<ThreadContextModel> getThreadContext() {
+        return convertFromString(Thread.currentThread().getName());
+    }
 
+    /**
+     * {@inheritDoc}
+     */
+    public Optional<ThreadContextModel> convertFromString(String value) {
         try {
-            return Optional.ofNullable(GSON.fromJson(Thread.currentThread().getName(), DefaultThreadContextModel.class));
+            return Optional.ofNullable(GSON.fromJson(value, DefaultThreadContextModel.class));
         }
         catch (Exception ex) {
             return Optional.ofNullable(null);

@@ -1,18 +1,45 @@
 package com.shedhack.thread.context.handler;
 
-import com.shedhack.thread.context.model.ThreadContextModel;
-
 import java.util.Optional;
 
-public interface ThreadContextHandler {
+/**
+ * <pre>
+ *     API for handling thread contexts. This will store the type T to the current thread.
+ *     Several implementations have been provided:
+ *
+ *      {@link com.shedhack.thread.context.handler.JsonThreadContextHandler}
+ *      {@link com.shedhack.thread.context.handler.ListThreadContextHandler}
+ *      {@link com.shedhack.thread.context.handler.SimpleThreadContextHandler}
+ *
+ *      Each implementations could use a matching {@link com.shedhack.thread.context.adapter.ThreadContextAdapter}
+ *      if you wish to provide a consistent API.
+ * </pre>
+ *
+ * @param <T> Type of object that will be stored in the context and also to be returned if required.
+ *
+ * @author imamchishty
+ */
+public interface ThreadContextHandler<T> {
 
     /**
      * Sets the thread context based on the generic type.
      */
-    void setThreadContext(ThreadContextModel context);
+    void setThreadContext(T context);
 
     /**
      * Optional returns back the thread context.
      */
-    Optional<ThreadContextModel> getThreadContext();
+    Optional<T> getThreadContext();
+
+    /**
+     * Converts from a String to the type T.
+     */
+     Optional<T> convertFromString(String original) ;
+
+    /**
+     * Returns the raw value without any type conversions.
+     */
+    default String getRawContext() {
+        return Thread.currentThread().getName();
+    }
 }
