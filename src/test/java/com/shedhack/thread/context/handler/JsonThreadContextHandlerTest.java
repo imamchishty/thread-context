@@ -2,9 +2,12 @@ package com.shedhack.thread.context.handler;
 
 import com.shedhack.thread.context.model.DefaultThreadContextModel;
 import com.shedhack.thread.context.model.ThreadContextModel;
+import org.junit.Before;
 import org.junit.Test;
 
+import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 
 import static org.junit.Assert.assertFalse;
@@ -19,7 +22,20 @@ import static org.junit.Assert.assertNotNull;
  */
 public class JsonThreadContextHandlerTest {
 
-    private JsonThreadContextHandler handler = new JsonThreadContextHandler();
+    private JsonThreadContextHandler handler = null;
+
+    @Before
+    public void setup() {
+        List<ThreadContextAfterSet> list = Arrays.asList(new ThreadContextAfterSet() {
+
+            @Override
+            public void afterSet(String context) {
+                // do something
+            }
+        });
+
+        handler = new JsonThreadContextHandler(list);
+    }
 
     @Test
     public void should_create_thread_context() {

@@ -1,5 +1,6 @@
 package com.shedhack.thread.context.handler;
 
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -41,5 +42,15 @@ public interface ThreadContextHandler<T> {
      */
     default String getRawContext() {
         return Thread.currentThread().getName();
+    }
+
+    /**
+     * Method is called after the thread context has been set. Allows you to do some extra stuff with
+     * the context, e.g. logging
+     */
+    default void afterSettingThreadContext(String context, List<ThreadContextAfterSet> afterSetList) {
+        for(ThreadContextAfterSet after : afterSetList) {
+            after.afterSet(context);
+        }
     }
 }

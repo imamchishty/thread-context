@@ -13,14 +13,30 @@ public class ListThreadContextHandler implements ThreadContextHandler<List<Strin
 
     private static final String SEP = "~";
 
+    private final List<ThreadContextAfterSet> afterSetHandlers;
+
+    public ListThreadContextHandler() {
+        this.afterSetHandlers = Collections.EMPTY_LIST;
+    }
+
+    public ListThreadContextHandler(List<ThreadContextAfterSet> afterSetHandlers) {
+        this.afterSetHandlers = afterSetHandlers;
+    }
+
     /**
      * Stores the list (comma separated) as the thread name.
      */
     public void setThreadContext(List<String> list) {
 
         if(list != null && !list.isEmpty()) {
-            Thread.currentThread().setName(list.stream()
-                    .collect(Collectors.joining(SEP)));
+
+            String converted = list.stream()
+                    .collect(Collectors.joining(SEP));
+
+            Thread.currentThread().setName(converted);
+
+            // call the after setting handler
+            this.afterSettingThreadContext(converted, afterSetHandlers);
         }
     }
 

@@ -1,5 +1,7 @@
 package com.shedhack.thread.context.handler;
 
+import java.util.Collections;
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -10,6 +12,16 @@ import java.util.Optional;
  */
 public class SimpleThreadContextHandler implements ThreadContextHandler<String> {
 
+    public SimpleThreadContextHandler() {
+        this.afterSetHandlers = Collections.EMPTY_LIST;
+    }
+
+    public SimpleThreadContextHandler(List<ThreadContextAfterSet> afterSetHandlers) {
+        this.afterSetHandlers = afterSetHandlers;
+    }
+
+    private final List<ThreadContextAfterSet> afterSetHandlers;
+
     /**
      * {@inheritDoc}
      */
@@ -17,6 +29,9 @@ public class SimpleThreadContextHandler implements ThreadContextHandler<String> 
 
         if(value !=null && !value.isEmpty()) {
             Thread.currentThread().setName(value);
+
+            // call the after setting handler
+            this.afterSettingThreadContext(value, afterSetHandlers);
         }
     }
 

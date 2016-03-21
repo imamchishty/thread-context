@@ -4,6 +4,8 @@ import com.google.gson.Gson;
 import com.shedhack.thread.context.model.ThreadContextModel;
 import com.shedhack.thread.context.model.DefaultThreadContextModel;
 
+import java.util.Collections;
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -16,13 +18,27 @@ public class JsonThreadContextHandler implements ThreadContextHandler<ThreadCont
 
     private static Gson GSON = new Gson();
 
+    private final List<ThreadContextAfterSet> afterHandlers;
+
+    public JsonThreadContextHandler() {
+        this.afterHandlers = Collections.EMPTY_LIST;
+    }
+
+    public JsonThreadContextHandler(List<ThreadContextAfterSet> afterHandlers) {
+        this.afterHandlers = afterHandlers;
+    }
+
     /**
      * {@inheritDoc}
      */
     public void setThreadContext(ThreadContextModel model) {
 
         if(model != null) {
-            Thread.currentThread().setName(GSON.toJson(model).toString());
+            String converted = GSON.toJson(model).toString();
+            Thread.currentThread().setName(converted);
+
+            // call the after setting handler
+            this.afterSettingThreadContext(converted, afterHandlers);
         }
     }
 
@@ -46,4 +62,5 @@ public class JsonThreadContextHandler implements ThreadContextHandler<ThreadCont
             return Optional.ofNullable(null);
         }
     }
+
 }

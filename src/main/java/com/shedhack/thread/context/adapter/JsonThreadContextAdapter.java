@@ -1,10 +1,12 @@
 package com.shedhack.thread.context.adapter;
 
 import com.shedhack.thread.context.handler.JsonThreadContextHandler;
+import com.shedhack.thread.context.handler.ThreadContextAfterSet;
 import com.shedhack.thread.context.model.DefaultThreadContextModel;
 import com.shedhack.thread.context.model.ThreadContextModel;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 
 /**
