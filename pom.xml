@@ -6,7 +6,7 @@
 
     <groupId>com.shedhack.thread</groupId>
     <artifactId>thread-context-handler</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.0</version>
 
     <description>Context enabler, for helping with debugging/logging</description>
     <url>https://github.com/imamchishty/thread-context-handler</url>
