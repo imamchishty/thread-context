@@ -41,7 +41,7 @@
     <distributionManagement>
         <repository>
             <id>bintray</id>
-            <url>https://api.bintray.com/maven/imamchishty/maven/thread-context-handler</url>
+            <url>https://api.bintray.com/maven/imamchishty/maven/thread-context-handler/;publish=1</url>
         </repository>
     </distributionManagement>
 
