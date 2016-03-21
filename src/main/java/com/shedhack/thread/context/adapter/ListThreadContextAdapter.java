@@ -23,7 +23,5 @@ public class ListThreadContextAdapter implements ThreadContextAdapter {
     public void setContext(String id, Date date, String method, Map<String, Object> context, Map<String, Object> params) {
         handler.setThreadContext(Arrays.asList(id, date.toString(),
                 method, context.toString(), params.toString()));
-
-        System.out.println("STRING--->" + handler.getThreadContext());
     }
 }

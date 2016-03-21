@@ -14,7 +14,8 @@ import java.util.Map;
 public interface ThreadContextAdapter {
 
     /**
-     * The adapter uses the params to create the context for the thread.
+     * The adapter uses the params to create the context for the thread. In order to retrieve the actual context for the
+     * given thread you will need to use the actual implementation of {@link com.shedhack.thread.context.handler.ThreadContextHandler}.
      *
      * @param id Unique Id. This is best suited for the Request Id rather than the Session Id. The session Id could be set in the context.
      * @param date Date/time for the request.

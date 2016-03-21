@@ -28,8 +28,6 @@ public class JsonThreadContextAdapter implements ThreadContextAdapter {
         model.setTimestamp(date);
         model.setParams(params);
         model.setContext(context);
-
-        System.out.println("model in json handler-->" + model);
         handler.setThreadContext(model);
     }
 }

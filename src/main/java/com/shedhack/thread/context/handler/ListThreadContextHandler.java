@@ -5,10 +5,13 @@ import java.util.stream.Collectors;
 
 /**
  * A simple list of Strings can be stored as the thread context.
+ * When the list is converted to a string each element is separated using ~.
  *
  * @author imamchishty
  */
 public class ListThreadContextHandler implements ThreadContextHandler<List<String>> {
+
+    private static final String SEP = "~";
 
     /**
      * Stores the list (comma separated) as the thread name.
@@ -17,7 +20,7 @@ public class ListThreadContextHandler implements ThreadContextHandler<List<Strin
 
         if(list != null && !list.isEmpty()) {
             Thread.currentThread().setName(list.stream()
-                    .collect(Collectors.joining(",")));
+                    .collect(Collectors.joining(SEP)));
         }
     }
 
@@ -32,6 +35,6 @@ public class ListThreadContextHandler implements ThreadContextHandler<List<Strin
      * {@inheritDoc}
      */
     public Optional<List<String>> convertFromString(String original) {
-        return Optional.ofNullable(Arrays.asList(original.split(",")));
+        return Optional.ofNullable(Arrays.asList(original.split(SEP)));
     }
 }
