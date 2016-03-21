@@ -6,7 +6,7 @@
 
     <groupId>com.shedhack.thread</groupId>
     <artifactId>thread-context-handler</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1-SNAPSHOT</version>
 
     <description>Context enabler, for helping with debugging/logging</description>
     <url>https://github.com/imamchishty/thread-context-handler</url>
@@ -41,7 +41,7 @@
     <distributionManagement>
         <repository>
             <id>bintray</id>
-            <url>https://api.bintray.com/maven/imamchishty/maven/thread-context-handler/;publish=1</url>
+            <url>https://api.bintray.com/maven/imamchishty/maven/thread-context-handler/;publish=1cle</url>
         </repository>
     </distributionManagement>
 
