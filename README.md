@@ -117,11 +117,26 @@ When the method is called the thread context is set, for example using JMC:
 
 ![alt tag](https://github.com/imamchishty/thread-context-handler/blob/master/resources/thread-name-image.png?raw=true "JMC threads list")
 
-### Dependencies
+### Dependencies used
 
+GSON is used by JsonThreadContextHandler, it creates an instance of GSON internally. The library is used to create a JSON string representation of ThreadContextModel, and also for doing the reverse.
 
+	<dependency>
+	    <groupId>com.google.code.gson</groupId>
+	    <artifactId>gson</artifactId>
+	    <version>2.6.1</version>
+	</dependency>
+
+Utility functions such as ToString rely on apache commons:
+
+	<dependency>
+	    <groupId>org.apache.commons</groupId>
+	    <artifactId>commons-lang3</artifactId>
+	    <version>3.4</version>
+	</dependency>
+	
 ### Java requirements
-
+Java 8+ is required due to the use of Optional. The code was built and tested using the Oracle JDK, for build details please click on the build image (Travis) at the top of the page.
 
 ### Maven repository
 
