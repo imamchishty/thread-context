@@ -53,6 +53,9 @@ Each implementations could use a matching **ThreadContextAdapter** if you wish t
         void afterSettingThreadContext(String context, List<ThreadContextAfterSet> afterSetList);
     }
  
+## Java 8 'Optional'
+The eagle-eyed have probably already notice the use of 'Optional'. This provides a safe way to obtain (if available) the payload, type T, and thus preventing the dreaded Null Pointer Exception.
+ 
 ## ThreadContextAfterSet 
  
 Once a context has been set you have the ability to do something with it, for example logging. A handler can be 
