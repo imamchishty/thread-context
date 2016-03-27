@@ -1,6 +1,6 @@
 # Thread-Context-Handler
 
-[![Build Status](https://travis-ci.org/imamchishty/thread-context-handler.svg?branch=master "JMC threads list")](https://travis-ci.org/imamchishty/thread-context-handler)
+[![Build Status](https://travis-ci.org/imamchishty/thread-context-handler.svg?branch=master "thread-context-aspect")](https://travis-ci.org/imamchishty/thread-context-handler) [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.shedhack.thread/thread-context-handler/badge.svg?style=plastic)](https://maven-badges.herokuapp.com/maven-central/com.shedhack.thread/thread-context-handler)
 
 ## Introduction
 
@@ -106,9 +106,19 @@ of the underlying implementation of the ThreadContextHandler.
         }
     }
 
+In the above example you'd probably wouldn't call the adapter from each method. It would be better to use a servlet or an aspect to do the same thing, but without intruding with your business logic. A thread-context-aspect project has been created which does exactly this (also available in Maven Central). Please refer to this project here:
+
+https://github.com/imamchishty/thread-context-aspect
+
 When the method is called the thread context is set, for example using JMC:
 
 ![alt tag](https://github.com/imamchishty/thread-context-handler/blob/master/resources/thread-name-image.png?raw=true "JMC threads list")
+
+### Dependencies
+
+
+### Java requirements
+
 
 ### Maven repository
 
