@@ -1,5 +1,7 @@
 # Thread-Context-Handler
 
+[![Build Status](https://travis-ci.org/imamchishty/thread-context-handler.svg?branch=master "JMC threads list")](https://travis-ci.org/imamchishty/thread-context-handler)
+
 ## Introduction
 
 This library provides the ability to set context state which would enable better **logging** and **debugging**. 
