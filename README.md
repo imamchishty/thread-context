@@ -8,21 +8,28 @@ This library provides the ability to set context state which would enable better
 The thread that is being executed will have the name set (context) with:
 
 - **Id**: Unique Id. This is best suited for the Request Id rather than the Session Id. The session Id could be set in the context.
+
 - **Date**: Date/time for the request.
+
 - **Method**: Ideally this returns the fully qualified method name.
+
 - **Context**: Context may contain items such as the htto method, the http request path, session Id etc.
+
 - **Method params**: the name of the params will be set to ARGx, e.g. ARG0, ARG1
 
 ## ThreadContextHandler
  
-API for handling thread contexts. This will store the type T to the current thread.
+[__ThreadContextHandler__](https://github.com/imamchishty/thread-context-handler/blob/master/src/main/java/com/shedhack/thread/context/handler/ThreadContextHandler.java) API for handling thread contexts. This will store the type T to the current thread.
+
 Several implementations have been provided:
 
-- **com.shedhack.thread.context.handler.JsonThreadContextHandler** this stores the context as json string representation of a ([ThreadContextModel](https://github.com/imamchishty/thread-context-handler/blob/master/src/main/java/com/shedhack/thread/context/model/ThreadContextModel.java)). 
-- **com.shedhack.thread.context.handler.ListThreadContextHandler** this stores a list (as a string).
-- **com.shedhack.thread.context.handler.SimpleThreadContextHandler** this stores a simple string.
+- [**JsonThreadContextHandler**](https://github.com/imamchishty/thread-context-handler/blob/master/src/main/java/com/shedhack/thread/context/handler/JsonThreadContextHandler.java) this stores the context as json string representation of a ([ThreadContextModel](https://github.com/imamchishty/thread-context-handler/blob/master/src/main/java/com/shedhack/thread/context/model/ThreadContextModel.java)). 
 
-Each implementations could use a matching **ThreadContextAdapter** if you wish to provide a consistent API.
+- [**com.shedhack.thread.context.handler.ListThreadContextHandler**](https://github.com/imamchishty/thread-context-handler/blob/master/src/main/java/com/shedhack/thread/context/handler/ListThreadContextHandler.java) this stores a list (as a string).
+
+- [**com.shedhack.thread.context.handler.SimpleThreadContextHandler**](https://github.com/imamchishty/thread-context-handler/blob/master/src/main/java/com/shedhack/thread/context/handler/SimpleThreadContextHandler.java) this stores a simple string.
+
+Each implementations could use a matching [**ThreadContextAdapter**](https://github.com/imamchishty/thread-context-handler/blob/master/src/main/java/com/shedhack/thread/context/adapter/ThreadContextAdapter.java) if you wish to provide a consistent API.
  
     public interface ThreadContextHandler<T> {
 
@@ -56,13 +63,14 @@ Each implementations could use a matching **ThreadContextAdapter** if you wish t
 ## Java 8 'Optional'
 The eagle-eyed have probably already notice the use of 'Optional'. This provides a safe way to obtain (if available) the payload, type T, and thus preventing the dreaded Null Pointer Exception.
  
-## ThreadContextAfterSet 
+## ThreadContextAfterSet
+
  
 Once a context has been set you have the ability to do something with it, for example logging. A handler can be 
-passed a list which are called after the context has been set.
+passed a list which are called after the context has been set, please refer to [ThreadContextAfterSet](https://github.com/imamchishty/thread-context-handler/blob/master/src/main/java/com/shedhack/thread/context/handler/ThreadContextAfterSet.java)
  
 ## ThreadContextAdapters
-ThreadContextAdapter provides a consistent API wrapper for dealing with ThreadContextHandler.
+[**ThreadContextAdapter**](https://github.com/imamchishty/thread-context-handler/blob/master/src/main/java/com/shedhack/thread/context/adapter/ThreadContextAdapter.java) provides a consistent API wrapper for dealing with ThreadContextHandler.
 As ThreadContextHandler uses generics a new ThreadContextAdapter implementation will be required to 'wrap' it up.
 Several implementations have been provided, one for each of the ThreadContextHandlers.
 
