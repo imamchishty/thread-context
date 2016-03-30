@@ -25,9 +25,9 @@ Several implementations have been provided:
 
 - [**JsonThreadContextHandler**](https://github.com/imamchishty/thread-context-handler/blob/master/src/main/java/com/shedhack/thread/context/handler/JsonThreadContextHandler.java) this stores the context as json string representation of a ([ThreadContextModel](https://github.com/imamchishty/thread-context-handler/blob/master/src/main/java/com/shedhack/thread/context/model/ThreadContextModel.java)). 
 
-- [**com.shedhack.thread.context.handler.ListThreadContextHandler**](https://github.com/imamchishty/thread-context-handler/blob/master/src/main/java/com/shedhack/thread/context/handler/ListThreadContextHandler.java) this stores a list (as a string).
+- [**ListThreadContextHandler**](https://github.com/imamchishty/thread-context-handler/blob/master/src/main/java/com/shedhack/thread/context/handler/ListThreadContextHandler.java) this stores a list (as a string).
 
-- [**com.shedhack.thread.context.handler.SimpleThreadContextHandler**](https://github.com/imamchishty/thread-context-handler/blob/master/src/main/java/com/shedhack/thread/context/handler/SimpleThreadContextHandler.java) this stores a simple string.
+- [**SimpleThreadContextHandler**](https://github.com/imamchishty/thread-context-handler/blob/master/src/main/java/com/shedhack/thread/context/handler/SimpleThreadContextHandler.java) this stores a simple string.
 
 Each implementations could use a matching [**ThreadContextAdapter**](https://github.com/imamchishty/thread-context-handler/blob/master/src/main/java/com/shedhack/thread/context/adapter/ThreadContextAdapter.java) if you wish to provide a consistent API.
  
