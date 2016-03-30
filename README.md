@@ -1,4 +1,4 @@
-# Thread-Context-Handler
+# Thread Context Handler
 
 [![Build Status](https://travis-ci.org/imamchishty/thread-context-handler.svg?branch=master "thread-context-aspect")](https://travis-ci.org/imamchishty/thread-context-handler) [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.shedhack.thread/thread-context-handler/badge.svg?style=plastic)](https://maven-badges.herokuapp.com/maven-central/com.shedhack.thread/thread-context-handler)
 
@@ -140,12 +140,12 @@ Java 8+ is required due to the use of Optional. The code was built and tested us
 
 ### Maven repository
 
-This artifact is available in Maven Central.
+This artifact is available in [Maven Central](https://maven-badges.herokuapp.com/maven-central/com.shedhack.thread/thread-context-handler).
  
     <dependency>
         <groupId>com.shedhack.thread</groupId>
         <artifactId>thread-context-handler</artifactId>
-        <version>1.0.0</version>
+        <version>x.x.x</version>
     </dependency>    
 
 ### Further reading
