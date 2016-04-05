@@ -23,7 +23,7 @@ public class SimpleThreadContextAdapter implements ThreadContextAdapter {
         handler.setThreadContext("{" +
                 "id='" + id + '\'' +
                 ", timestamp=" + date +
-                ", methodName='" + method + '\'' +
+                ", method='" + method + '\'' +
                 ", params=" + params +
                 ", context=" + context +
                 "}");
