@@ -25,7 +25,7 @@ public class LoggerReadyThreadContextAdapter implements ThreadContextAdapter {
     private static final String SEP = ",";
 
     /**
-     * {@inheritDoc}
+     * Please note that this implementation will only use the method, params and context.
      */
     public void setContext(String id, Date date, String method, Map<String, Object> context, Map<String, Object> params) {
         handler.setThreadContext(method + SEP + params + SEP + context);

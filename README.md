@@ -73,6 +73,9 @@ passed a list which are called after the context has been set, please refer to [
 [**ThreadContextAdapter**](https://github.com/imamchishty/thread-context-handler/blob/master/src/main/java/com/shedhack/thread/context/adapter/ThreadContextAdapter.java) provides a consistent API wrapper for dealing with ThreadContextHandler.
 As ThreadContextHandler uses generics a new ThreadContextAdapter implementation will be required to 'wrap' it up.
 Several implementations have been provided, one for each of the ThreadContextHandlers.
+A special handler has been added for Logging. This implementation, [](), will not set the ID or the date. It 
+assumes that these have been set by the logging framework (possibly via the MDC). For setting MDC with HTTP
+request style info I would recommend looking at [__filter-request-id__](https://github.com/imamchishty/filter-request-id).
 
 ## Examples
 
