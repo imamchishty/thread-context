@@ -6,7 +6,7 @@ import java.util.Date;
 import java.util.Map;
 
 /**
- * Created by imamchishty on 15/03/2016.
+ * @author imamchishty
  */
 public class SimpleThreadContextAdapter implements ThreadContextAdapter {
 
@@ -16,15 +16,17 @@ public class SimpleThreadContextAdapter implements ThreadContextAdapter {
 
     private SimpleThreadContextHandler handler;
 
-    private static final String SEP = "~";
-
     /**
      * {@inheritDoc}
      */
     public void setContext(String id, Date date, String method, Map<String, Object> context, Map<String, Object> params) {
-        handler.setThreadContext(id + SEP + date
-                + SEP + method
-                + SEP + context + SEP
-                + params);
+        handler.setThreadContext("{" +
+                "id='" + id + '\'' +
+                ", timestamp=" + date +
+                ", methodName='" + method + '\'' +
+                ", params=" + params +
+                ", context=" + context +
+                "}");
+
     }
 }

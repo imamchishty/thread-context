@@ -117,6 +117,11 @@ of the underlying implementation of the ThreadContextHandler.
         }
     }
 
+Thread Context would be set to
+
+    {id='1234567890', timestamp=Tue Apr 05 16:20:43 GST 2016, methodName='com.shedhack.thread.context.adapter.FooService.calc', params={ARG0=199, ARG1=200}, context={session-id=ABC}}
+
+
 In the above example you'd probably wouldn't call the adapter from each method. It would be better to use a servlet or an aspect to do the same thing, but without intruding with your business logic. A thread-context-aspect project has been created which does exactly this (also available in Maven Central). Please refer to this project here:
 
 https://github.com/imamchishty/thread-context-aspect
