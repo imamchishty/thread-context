@@ -34,7 +34,7 @@ public class JsonThreadContextHandler implements ThreadContextHandler<ThreadCont
     public void setThreadContext(ThreadContextModel model) {
 
         if(model != null) {
-            String converted = GSON.toJson(model).toString();
+            String converted = GSON.toJson(model);
             Thread.currentThread().setName(converted);
 
             // call the after setting handler
@@ -59,7 +59,7 @@ public class JsonThreadContextHandler implements ThreadContextHandler<ThreadCont
             return Optional.ofNullable(GSON.fromJson(value, DefaultThreadContextModel.class));
         }
         catch (Exception ex) {
-            return Optional.ofNullable(null);
+            return Optional.empty();
         }
     }
 
