@@ -105,7 +105,5 @@ public class ThreadContextHandlerTest {
         // Get the context - tests running on the same thread
         Optional<String> string = simpleHandler.getThreadContext();
         assertTrue(string.isPresent());
-
-        System.out.println(string.get());
     }
 }
