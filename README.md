@@ -65,9 +65,9 @@ The eagle-eyed have probably already notice the use of 'Optional'. This provides
  
 ## ThreadContextAfterSet
 
- 
 Once a context has been set you have the ability to do something with it, for example logging. A handler can be 
 passed a list which are called after the context has been set, please refer to [ThreadContextAfterSet](https://github.com/imamchishty/thread-context-handler/blob/master/src/main/java/com/shedhack/thread/context/handler/ThreadContextAfterSet.java)
+[__LoggingAfterSet__](https://github.com/imamchishty/thread-context-handler/blob/master/src/main/java/com/shedhack/thread/context/handler/LoggingAfterSet.java) logs the context (String) to your desired log file at INFO level.
  
 ## ThreadContextAdapters
 [**ThreadContextAdapter**](https://github.com/imamchishty/thread-context-handler/blob/master/src/main/java/com/shedhack/thread/context/adapter/ThreadContextAdapter.java) provides a consistent API wrapper for dealing with ThreadContextHandler.
@@ -142,6 +142,15 @@ Utility functions such as ToString rely on apache commons:
 	    <artifactId>commons-lang3</artifactId>
 	    <version>3.4</version>
 	</dependency>
+	
+SLF4J:
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.21</version>
+        </dependency>
+
 	
 ### Java requirements
 Java 8+ is required due to the use of Optional. The code was built and tested using the Oracle JDK, for build details please click on the build image (Travis) at the top of the page.
