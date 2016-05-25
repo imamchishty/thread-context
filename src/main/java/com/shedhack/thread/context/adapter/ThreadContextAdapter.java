@@ -20,7 +20,7 @@ public interface ThreadContextAdapter {
      * @param id Unique Id. This is best suited for the Request Id rather than the Session Id. The session Id could be set in the context.
      * @param date Date/time for the request.
      * @param method Ideally this returns the fully qualified method name.
-     * @param context Context may contain items such as the htto method, the http request path, session Id etc.
+     * @param context Context may contain items such as the http method, the http request path, session Id etc.
      * @param params Method params, the name of the params will be set to ARGx, e.g. ARG0, ARG1
      */
     void setContext(String id, Date date, String method, Map<String, Object> context, Map<String, Object> params);
