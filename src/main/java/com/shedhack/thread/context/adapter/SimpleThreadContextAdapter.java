@@ -16,17 +16,14 @@ public class SimpleThreadContextAdapter implements ThreadContextAdapter {
 
     private SimpleThreadContextHandler handler;
 
+    private static final String TEXT = "{\"request-id\": \"%s\", \"timestamp\": \"%s\", " +
+            "\"method\": \"%s\", \"params\": \"%s\", \"context\": \"%s\"}";
+
     /**
      * {@inheritDoc}
      */
     public void setContext(String id, Date date, String method, Map<String, Object> context, Map<String, Object> params) {
-        handler.setThreadContext("{" +
-                "id='" + id + '\'' +
-                ", timestamp=" + date +
-                ", method='" + method + '\'' +
-                ", params=" + params +
-                ", context=" + context +
-                "}");
+        handler.setThreadContext(String.format(TEXT, id, date, method, params, context));
 
     }
 }
