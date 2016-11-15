@@ -1,8 +1,5 @@
 package com.shedhack.thread.context.model;
 
-import org.apache.commons.lang3.builder.ToStringBuilder;
-import org.apache.commons.lang3.builder.ToStringStyle;
-
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -108,6 +105,12 @@ public class DefaultThreadContextModel implements ThreadContextModel {
 
     @Override
     public String toString() {
-        return ToStringBuilder.reflectionToString(this, ToStringStyle.SIMPLE_STYLE);
+        return "{\"DefaultThreadContextModel\":{"
+                + "\"id\":\"" + id + "\""
+                + ", \"timestamp\":" + timestamp
+                + ", \"methodName\":\"" + methodName + "\""
+                + ", \"params\":" + params
+                + ", \"context\":" + context
+                + "}}";
     }
 }

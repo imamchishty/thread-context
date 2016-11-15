@@ -16,7 +16,7 @@ public class SimpleThreadContextAdapter implements ThreadContextAdapter {
 
     private SimpleThreadContextHandler handler;
 
-    private static final String TEXT = "{\"request-id\": \"%s\", \"timestamp\": \"%s\", " +
+    private static final String TEXT = "{\"spanId\": \"%s\", \"timestamp\": \"%s\", " +
             "\"method\": \"%s\", \"params\": \"%s\", \"context\": \"%s\"}";
 
     /**

@@ -14,4 +14,7 @@ import java.lang.annotation.Target;
 @Retention(java.lang.annotation.RetentionPolicy.RUNTIME)
 @Documented
 public @interface ThreadContext {
+
+    ThreadContextType type() default ThreadContextType.JSON;
+
 }

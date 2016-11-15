@@ -1,5 +1,6 @@
 package com.shedhack.thread.context.adapter;
 
+import com.google.gson.Gson;
 import com.shedhack.thread.context.handler.JsonThreadContextHandler;
 import com.shedhack.thread.context.handler.ListThreadContextHandler;
 import com.shedhack.thread.context.handler.SimpleThreadContextHandler;
@@ -21,7 +22,8 @@ public class ThreadContextHandlerTest {
     // ---------------------------------------------------
     // ThreadContextHandlers - one for each implementation
     // ---------------------------------------------------
-    private JsonThreadContextHandler jsonHandler = new JsonThreadContextHandler();
+    private Gson gson = new Gson();
+    private JsonThreadContextHandler jsonHandler = new JsonThreadContextHandler(gson);
     private ListThreadContextHandler listHandler = new ListThreadContextHandler();
     private SimpleThreadContextHandler simpleHandler = new SimpleThreadContextHandler();
 

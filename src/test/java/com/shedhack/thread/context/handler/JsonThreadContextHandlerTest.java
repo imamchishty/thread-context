@@ -1,5 +1,6 @@
 package com.shedhack.thread.context.handler;
 
+import com.google.gson.Gson;
 import com.shedhack.thread.context.model.DefaultThreadContextModel;
 import com.shedhack.thread.context.model.ThreadContextModel;
 import org.junit.Before;
@@ -34,7 +35,7 @@ public class JsonThreadContextHandlerTest {
             }
         });
 
-        handler = new JsonThreadContextHandler(list);
+        handler = new JsonThreadContextHandler(new Gson(), list);
     }
 
     @Test

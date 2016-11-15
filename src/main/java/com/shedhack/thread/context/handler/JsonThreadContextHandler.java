@@ -16,16 +16,18 @@ import java.util.Optional;
  */
 public class JsonThreadContextHandler implements ThreadContextHandler<ThreadContextModel> {
 
-    private static Gson GSON = new Gson();
+    private Gson GSON;
 
     private final List<ThreadContextAfterSet> afterHandlers;
 
-    public JsonThreadContextHandler() {
+    public JsonThreadContextHandler(Gson gson) {
+        this.GSON = gson;
         this.afterHandlers = Collections.EMPTY_LIST;
     }
 
-    public JsonThreadContextHandler(List<ThreadContextAfterSet> afterHandlers) {
+    public JsonThreadContextHandler(Gson gson, List<ThreadContextAfterSet> afterHandlers) {
         this.afterHandlers = afterHandlers;
+        this.GSON = gson;
     }
 
     /**
